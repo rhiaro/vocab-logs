@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vocabulary for various logs</title>
+    <link rel="stylesheet" type="text/css" href="https://apps.rhiaro.co.uk/css/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://apps.rhiaro.co.uk/css/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="alternate" type="text/turtle" href="http://rdf-translator.appspot.com/convert/rdfa/turtle/http://vocab.amy.gy/logs" />
+    <link rel="alternate" type="application/ld+json" href="http://rdf-translator.appspot.com/convert/rdfa/json-ld/http://vocab.amy.gy/logs" />
+    <style type="text/css">
+      pre { font-size: 0.8em; }
+    </style>
+  </head>
+  <body about="" prefix="schema: https://schema.org/ dbpedia: http://dbpedia.org/resource/" typeof="owl:Ontology">
+    <main class="w2of3 center">
+    <h1 about="" typeof="owl:Ontology" property="dc:title">Vocabulary for Various Logs</h1>
+    <p>By <a href="http://rhiaro.co.uk/#i" rel="dc:creator">Amy Guy</a>; published: <time rel="dc:published" datetime="2016-05-06" datatype="xsd:dateTime">6th May 2016</time>; last modified: <time rel="dc:modified" datetime="2016-05-06" datatype="xsd:dateTime">6th May 2016</time></p>
+    <section id="toc">
+      <h2>Table of contents</h2>
+      <div>
+        <ol>
+          <li><a href="#abstract">Abstract</a></li>
+          <li><a href="#discussion">Discussion</a></li>
+          <li><a href="#commits">Commits</a></li>
+          <li><a href="#words">Words</a></li>
+          <li><a href="#im">Instant Messages</a></li>
+          <li><a href="#useage">Useage</a></li>
+        </ol>
+      </div>
+    </section>
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <div>
+        <p property="dc:description">This vocabulary describes various small activities I like to log as an extension to <a href="https://www.w3.org/tr/activitystreams-core">ActivityStreams 2.0</a>. I would expect them to present to a reader in aggregate over some time period.</p>
+      </div>
+    </section>
+    <section id="discussion">
+      <h2>Discussion</h2>
+      <div>
+        <p>Notes about things considered when creating this vocabulary.</p>
+        <ul>
+          <li>Things are fairly arbitrarily added as I decide I want to add them to my site. Deliberately short and simple.</li>
+          <li>These activities may not have <code>object</code>s because all they are for is notifications of aggregate things.</li>
+        </ul>
+        <p>If I've missed something PR/issue welcome on <a href="https://github.com/rhiaro/vocab-logs">github</a>.</p>
+      </div>
+    </section>
+
+    <section id="commits">
+      <h2>Commits</h2>
+      <p>Motivated by wanting a contributions tracker like Github has, but that includes Bitbucket and private repos as well. I made a <a href="#">githook</a> that automatically generates a Commit activity and posts it to my site using <a href="#">SocialPub</a> whenever I make a commit locally.</p>
+      <dl>
+        <dt id="Commit" about="#Commit" typeof="rdf:Class" property="rdfs:label"><a href="#Commit">Commit</a></dt>
+        <dd about="#Commit">
+          <p property="rdfs:comment">A commit activity. Subclass of <a rel="rdfs:subClassOf" href="http://www.w3.org/ns/activitystreams#Activity">as:Activity</a>.</p>
+        </dd>
+      </dl>
+    </section>
+
+    <section id="words">
+      <h2>Words</h2>
+      <p>Motivated by using <a href="http://750words.com">750words</a> and also wanting to track wordcounts for <a href="http://nanowrimo.org">Nanowrimo</a> and my <a href="http://dr.amy.gy">thesis</a>, I wrote <a href="#">a script that parses my past 750words outputs and turns them into Write activities per day</a> (which I then dumped into my triplestore), and <a href="#">a script that takes a markdown file and creates a Write activity and posts it with SocialPub on run</a>, and an <a href="#">extension for dokieli that sends a Write activity with Solid on a button press</a>.</p>
+      <dl>
+        <dt id="Write" about="#Commit" typeof="rdf:Class" property="rdfs:label"><a href="#Write">Write</a></dt>
+        <dd about="#Write">
+          <p property="rdfs:comment">A write activity. Subclass of <a rel="rdfs:subClassOf" href="http://www.w3.org/ns/activitystreams#Activity">as:Activity</a>.</p>
+        </dd>
+      </dl>
+    </section>
+
+    <section id="im">
+      <h2>Instant Messages</h2>
+      <p>Motivated by how much time I spend on IRC; I wrote <a href="#">a script that converts the results of a SQLite query on my Quassel logs to Send activities</a> (which I can then dump in my triplestore).</p>
+      <dl>
+        <dt id="Commit" about="#Commit" typeof="rdf:Class" property="rdfs:label"><a href="#Commit">Commit</a></dt>
+        <dd about="#Commit">
+          <p property="rdfs:comment">A commit activity. Subclass of <a rel="rdfs:subClassOf" href="http://www.w3.org/ns/activitystreams#Activity">as:Activity</a>.</p>
+        </dd>
+      </dl>
+    </section>
+ 
+    <section id="useage">
+      <h2>Usage</h2>
+      <div>
+        <p>This vocabulary is used by (and was initially developed for) <a href="https://rhiaro.co.uk">my website</a>, for storing my logs because I felt like it. Example:</p>
+        <pre>
+@prefix diet: &lt;http://vocab.amy.gy/logs#&gt;
+&lt;http://rhiaro.co.uk/about#me&gt;
+                                .
+        </pre>
+        <p>If you start using it for something or publishing your own logs somewhere using this, let me know or PR to add yours here.</p>
+      </div>
+    </section>
+  </main>
+  </body>
+</html>
