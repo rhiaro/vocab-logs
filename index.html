@@ -21,10 +21,12 @@
         <ol>
           <li><a href="#abstract">Abstract</a></li>
           <li><a href="#discussion">Discussion</a></li>
-          <li><a href="#commits">Commits</a></li>
+          <li><a href="#consumes">Consume</a></li>
+          <li><a href="#acquires">Acquire</a></li>
+          <!--<li><a href="#commits">Commits</a></li>
           <li><a href="#words">Words</a></li>
-          <li><a href="#im">Instant Messages</a></li>
-          <li><a href="#useage">Useage</a></li>
+          <li><a href="#im">Instant Messages</a></li>-->
+          <li><a href="#usage">Usage</a></li>
         </ol>
       </div>
     </section>
@@ -46,11 +48,38 @@
       </div>
     </section>
 
+    <section id="consumes">
+      <h2>Consume</h2>
+      <p>Tracking everything I eat.</p>
+      <dl>
+        <dt id="Consume" about="#Consume" typeof="rdfs:Class" property="rdfs:label"><a href="#Consume">Consume</a></dt>
+        <dd about="#Consume">
+          <p property="rdfs:comment">A consume activity. Subclass of <a rel="rdfs:subClassOf" href="http://www.w3.org/ns/activitystreams#Activity">as:Activity</a>. The <code>object</code> should be a list of URIs for foodstuffs, and the name should be a description thereof.</p>
+        </dd>
+      </dl>
+    </section>
+
+    <section id="acquires">
+      <h2>Acquire</h2>
+      <p>Tracking things I acquire, usually through purchasing or gifting.</p>
+      <dl>
+        <dt id="Acquire" about="#Acquire" typeof="rdfs:Class" property="rdfs:label"><a href="#Acquire">Acquire</a></dt>
+        <dd about="#Acquire">
+          <p property="rdfs:comment">An acquire activity. Subclass of <a rel="rdfs:subClassOf" href="http://www.w3.org/ns/activitystreams#Activity">as:Activity</a>. The <code>object</code> should be a list of URIs for things acquired, and the name should be a description thereof.</p>
+        </dd>
+
+        <dt id="cost" about="#cost" typeof="rdf:Property" property="rdfs:label"><a href="#cost">cost</a></dt>
+        <dd about="#cost">
+          <p property="rdfs:comment">The cost of something acquired as a literal, possibly including currency.</p>
+        </dd>
+      </dl>
+    </section>
+<!---
     <section id="commits">
       <h2>Commits</h2>
       <p>Motivated by wanting a contributions tracker like Github has, but that includes Bitbucket and private repos as well. I made a <a href="#">githook</a> that automatically generates a Commit activity and posts it to my site using <a href="#">SocialPub</a> whenever I make a commit locally.</p>
       <dl>
-        <dt id="Commit" about="#Commit" typeof="rdf:Class" property="rdfs:label"><a href="#Commit">Commit</a></dt>
+        <dt id="Commit" about="#Commit" typeof="rdfs:Class" property="rdfs:label"><a href="#Commit">Commit</a></dt>
         <dd about="#Commit">
           <p property="rdfs:comment">A commit activity. Subclass of <a rel="rdfs:subClassOf" href="http://www.w3.org/ns/activitystreams#Activity">as:Activity</a>.</p>
         </dd>
@@ -61,7 +90,7 @@
       <h2>Words</h2>
       <p>Motivated by using <a href="http://750words.com">750words</a> and also wanting to track wordcounts for <a href="http://nanowrimo.org">Nanowrimo</a> and my <a href="http://dr.amy.gy">thesis</a>, I wrote <a href="#">a script that parses my past 750words outputs and turns them into Write activities per day</a> (which I then dumped into my triplestore), and <a href="#">a script that takes a markdown file and creates a Write activity and posts it with SocialPub on run</a>, and an <a href="#">extension for dokieli that sends a Write activity with Solid on a button press</a>.</p>
       <dl>
-        <dt id="Write" about="#Commit" typeof="rdf:Class" property="rdfs:label"><a href="#Write">Write</a></dt>
+        <dt id="Write" about="#Commit" typeof="rdfs:Class" property="rdfs:label"><a href="#Write">Write</a></dt>
         <dd about="#Write">
           <p property="rdfs:comment">A write activity. Subclass of <a rel="rdfs:subClassOf" href="http://www.w3.org/ns/activitystreams#Activity">as:Activity</a>.</p>
         </dd>
@@ -72,21 +101,25 @@
       <h2>Instant Messages</h2>
       <p>Motivated by how much time I spend on IRC; I wrote <a href="#">a script that converts the results of a SQLite query on my Quassel logs to Send activities</a> (which I can then dump in my triplestore).</p>
       <dl>
-        <dt id="Commit" about="#Commit" typeof="rdf:Class" property="rdfs:label"><a href="#Commit">Commit</a></dt>
+        <dt id="Commit" about="#Commit" typeof="rdfs:Class" property="rdfs:label"><a href="#Commit">Commit</a></dt>
         <dd about="#Commit">
           <p property="rdfs:comment">A commit activity. Subclass of <a rel="rdfs:subClassOf" href="http://www.w3.org/ns/activitystreams#Activity">as:Activity</a>.</p>
         </dd>
       </dl>
     </section>
- 
-    <section id="useage">
+--> 
+    <section id="usage">
       <h2>Usage</h2>
       <div>
-        <p>This vocabulary is used by (and was initially developed for) <a href="https://rhiaro.co.uk">my website</a>, for storing my logs because I felt like it. Example:</p>
+        <p>This vocabulary is used by (and was initially developed for) <a href="https://rhiaro.co.uk">my website</a>, for storing my logs because I felt like it. Examples:</p>
         <pre>
-@prefix diet: &lt;http://vocab.amy.gy/logs#&gt;
+@prefix asext: &lt;https://terms.rhiaro.co.uk/as#&gt;
 &lt;http://rhiaro.co.uk/about#me&gt;
-                                .
+&lt;&gt; a asext:Write, as:Activity ;
+   as:published "" ;
+   as:actor &lt;http://rhiaro.co.uk/about#me&gt; ;
+   as:duration "";
+   asext:wordCount .                .
         </pre>
         <p>If you start using it for something or publishing your own logs somewhere using this, let me know or PR to add yours here.</p>
       </div>
