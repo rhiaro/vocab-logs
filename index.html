@@ -3,7 +3,8 @@
   <head>
     <title>Vocabulary for various logs</title>
     <link rel="stylesheet" type="text/css" href="https://rhiaro.co.uk/views/normalize.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://rhiaro.co.uk/views/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://rhiaro.co.uk/views/core.css" />
+    <link rel="stylesheet" type="text/css" href="https://rhiaro.co.uk/views/base.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="alternate" type="text/turtle" href="http://rdf-translator.appspot.com/convert/rdfa/turtle/http://vocab.amy.gy/logs" />
     <link rel="alternate" type="application/ld+json" href="http://rdf-translator.appspot.com/convert/rdfa/json-ld/http://vocab.amy.gy/logs" />
@@ -12,7 +13,7 @@
     </style>
   </head>
   <body about="" prefix="schema: https://schema.org/ dbpedia: http://dbpedia.org/resource/" typeof="owl:Ontology">
-    <main class="w2of3 center">
+    <main class="w2of3 center"><article>
     <h1 about="" typeof="owl:Ontology" property="dc:title">Vocabulary for Various Logs</h1>
     <p>By <a href="http://rhiaro.co.uk/#i" rel="dc:creator">Amy Guy</a>; published: <time rel="dc:published" datetime="2016-05-06" datatype="xsd:dateTime">6th May 2016</time>; last modified: <time rel="dc:modified" datetime="2016-11-18" datatype="xsd:dateTime">18th November 2016</time></p>
     <section id="toc">
@@ -84,6 +85,7 @@
         <dd about="#Sleep">
           <p property="rdfs:comment">A sleep activity. Subclass of <a rel="rdfs:subClassOf" href="http://www.w3.org/ns/activitystreams#Activity">as:Activity</a>. Should have a <code>startTime</code> and <code>endTime</code>, or <code>duration</code>, or both.</p>
         </dd>
+      </dl>
     </section>
 <!---
     <section id="commits">
@@ -124,17 +126,17 @@
       <div>
         <p>This vocabulary is used by (and was initially developed for) <a href="https://rhiaro.co.uk">my website</a>, for storing my logs because I felt like it. Examples:</p>
         <pre>
-@prefix asext: &lt;https://terms.rhiaro.co.uk/as#&gt;
-&lt;http://rhiaro.co.uk/about#me&gt;
-&lt;&gt; a asext:Write, as:Activity ;
+@prefix asext: &lt;https://rhiaro.co.uk/terms/as#&gt;
+@prefix as: &lt;https://www.w3.org/ns/activitystreams#&gt;
+&lt;&gt; a asext:Consume, as:Activity ;
    as:published "" ;
-   as:actor &lt;http://rhiaro.co.uk/about#me&gt; ;
-   as:duration "";
-   asext:wordCount .                .
+   as:actor &lt;https://rhiaro.co.uk/#me&gt; ;
+   as:content "Banana" ;
+   as:tag &lt;https://rhiaro.co.uk/tags/fruit&gt; .
         </pre>
         <p>If you start using it for something or publishing your own logs somewhere using this, let me know or PR to add yours here.</p>
       </div>
     </section>
-  </main>
+  </article></main>
   </body>
 </html>
