@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>Vocabulary for various logs</title>
-    <link rel="stylesheet" type="text/css" href="https://apps.rhiaro.co.uk/css/normalize.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://apps.rhiaro.co.uk/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://rhiaro.co.uk/views/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://rhiaro.co.uk/views/main.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="alternate" type="text/turtle" href="http://rdf-translator.appspot.com/convert/rdfa/turtle/http://vocab.amy.gy/logs" />
     <link rel="alternate" type="application/ld+json" href="http://rdf-translator.appspot.com/convert/rdfa/json-ld/http://vocab.amy.gy/logs" />
@@ -14,7 +14,7 @@
   <body about="" prefix="schema: https://schema.org/ dbpedia: http://dbpedia.org/resource/" typeof="owl:Ontology">
     <main class="w2of3 center">
     <h1 about="" typeof="owl:Ontology" property="dc:title">Vocabulary for Various Logs</h1>
-    <p>By <a href="http://rhiaro.co.uk/#i" rel="dc:creator">Amy Guy</a>; published: <time rel="dc:published" datetime="2016-05-06" datatype="xsd:dateTime">6th May 2016</time>; last modified: <time rel="dc:modified" datetime="2016-05-06" datatype="xsd:dateTime">6th May 2016</time></p>
+    <p>By <a href="http://rhiaro.co.uk/#i" rel="dc:creator">Amy Guy</a>; published: <time rel="dc:published" datetime="2016-05-06" datatype="xsd:dateTime">6th May 2016</time>; last modified: <time rel="dc:modified" datetime="2016-11-18" datatype="xsd:dateTime">18th November 2016</time></p>
     <section id="toc">
       <h2>Table of contents</h2>
       <div>
@@ -23,6 +23,7 @@
           <li><a href="#discussion">Discussion</a></li>
           <li><a href="#consumes">Consume</a></li>
           <li><a href="#acquires">Acquire</a></li>
+          <li><a href="#sleep">Sleep</a></li>
           <!--<li><a href="#commits">Commits</a></li>
           <li><a href="#words">Words</a></li>
           <li><a href="#im">Instant Messages</a></li>-->
@@ -54,7 +55,7 @@
       <dl>
         <dt id="Consume" about="#Consume" typeof="rdfs:Class" property="rdfs:label"><a href="#Consume">Consume</a></dt>
         <dd about="#Consume">
-          <p property="rdfs:comment">A consume activity. Subclass of <a rel="rdfs:subClassOf" href="http://www.w3.org/ns/activitystreams#Activity">as:Activity</a>. The <code>object</code> should be a list of URIs for foodstuffs, and the name should be a description thereof.</p>
+          <p property="rdfs:comment">A consume activity. Subclass of <a rel="rdfs:subClassOf" href="http://www.w3.org/ns/activitystreams#Activity">as:Activity</a>. The <code>object</code> should be a list of URIs for foodstuffs, and the content should be a description thereof.</p>
         </dd>
       </dl>
     </section>
@@ -65,7 +66,7 @@
       <dl>
         <dt id="Acquire" about="#Acquire" typeof="rdfs:Class" property="rdfs:label"><a href="#Acquire">Acquire</a></dt>
         <dd about="#Acquire">
-          <p property="rdfs:comment">An acquire activity. Subclass of <a rel="rdfs:subClassOf" href="http://www.w3.org/ns/activitystreams#Activity">as:Activity</a>. The <code>object</code> should be a list of URIs for things acquired, and the name should be a description thereof.</p>
+          <p property="rdfs:comment">An acquire activity. Subclass of <a rel="rdfs:subClassOf" href="http://www.w3.org/ns/activitystreams#Activity">as:Activity</a>. The <code>object</code> should be a list of URIs for things acquired, and the name should be a description thereof. The <code>content</code> should be a description of what was acquired.</p>
         </dd>
 
         <dt id="cost" about="#cost" typeof="rdf:Property" property="rdfs:label"><a href="#cost">cost</a></dt>
@@ -73,6 +74,16 @@
           <p property="rdfs:comment">The cost of something acquired as a literal, possibly including currency.</p>
         </dd>
       </dl>
+    </section>
+
+    <section id="sleep">
+      <h2>Sleep</h2>
+      <p>Tracking sleep.</p>
+      <dl>
+        <dt id="Sleep" about="#Sleep" typeof="rdfs:Class" property="rdfs:label"><a href="#Sleep">Sleep</a></dt>
+        <dd about="#Sleep">
+          <p property="rdfs:comment">A sleep activity. Subclass of <a rel="rdfs:subClassOf" href="http://www.w3.org/ns/activitystreams#Activity">as:Activity</a>. Should have a <code>startTime</code> and <code>endTime</code>, or <code>duration</code>, or both.</p>
+        </dd>
     </section>
 <!---
     <section id="commits">
