@@ -6,10 +6,12 @@
     <link rel="stylesheet" type="text/css" href="https://rhiaro.co.uk/views/core.css" />
     <link rel="stylesheet" type="text/css" href="https://rhiaro.co.uk/views/base.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="alternate" type="text/turtle" href="http://rdf-translator.appspot.com/convert/rdfa/turtle/http://vocab.amy.gy/logs" />
-    <link rel="alternate" type="application/ld+json" href="http://rdf-translator.appspot.com/convert/rdfa/json-ld/http://vocab.amy.gy/logs" />
+    <link rel="alternate" type="text/turtle" href="http://rdf-translator.appspot.com/convert/rdfa/turtle/https://terms.rhiaro.co.uk/as#" />
+    <link rel="alternate" type="application/ld+json" href="http://rdf-translator.appspot.com/convert/rdfa/json-ld/https://terms.rhiaro.co.uk/as#" />
     <style type="text/css">
       pre { font-size: 0.8em; }
+      time { display: inline; }
+      dt { font-weight: bold; font-size: 1.2em;}
     </style>
   </head>
   <body about="" prefix="schema: https://schema.org/ dbpedia: http://dbpedia.org/resource/" typeof="owl:Ontology">
@@ -25,9 +27,9 @@
           <li><a href="#consumes">Consume</a></li>
           <li><a href="#acquires">Acquire</a></li>
           <li><a href="#sleep">Sleep</a></li>
-          <!--<li><a href="#commits">Commits</a></li>
+          <!-- <li><a href="#commits">Commits</a></li> -->
           <li><a href="#words">Words</a></li>
-          <li><a href="#im">Instant Messages</a></li>-->
+          <!-- <li><a href="#im">Instant Messages</a></li> -->
           <li><a href="#usage">Usage</a></li>
         </ol>
       </div>
@@ -111,18 +113,25 @@
         </dd>
       </dl>
     </section>
-
+-->
     <section id="words">
       <h2>Words</h2>
-      <p>Motivated by using <a href="http://750words.com">750words</a> and also wanting to track wordcounts for <a href="http://nanowrimo.org">Nanowrimo</a> and my <a href="http://dr.amy.gy">thesis</a>, I wrote <a href="#">a script that parses my past 750words outputs and turns them into Write activities per day</a> (which I then dumped into my triplestore), and <a href="#">a script that takes a markdown file and creates a Write activity and posts it with SocialPub on run</a>, and an <a href="#">extension for dokieli that sends a Write activity with Solid on a button press</a>.</p>
+      <p>Motivated by using <a href="http://750words.com">750words</a> and also wanting to track wordcounts for <a href="http://nanowrimo.org">Nanowrimo</a> and my <a href="http://dr.amy.gy">thesis</a>.</p>
+
+      <!--, I wrote <a href="#">a script that parses my past 750words outputs and turns them into Write activities per day</a> (which I then dumped into my triplestore), and <a href="#">a script that takes a markdown file and creates a Write activity and posts it with SocialPub on run</a>, and an <a href="#">extension for dokieli that sends a Write activity with Solid on a button press</a>.</p>-->
       <dl>
-        <dt id="Write" about="#Commit" typeof="rdfs:Class" property="rdfs:label"><a href="#Write">Write</a></dt>
+        <dt id="Write" about="#Write" typeof="rdfs:Class" property="rdfs:label"><a href="#Write">Write</a></dt>
         <dd about="#Write">
-          <p property="rdfs:comment">A write activity. Subclass of <a rel="rdfs:subClassOf" href="http://www.w3.org/ns/activitystreams#Activity">as:Activity</a>.</p>
+          <p property="rdfs:comment">A write activity. Subclass of <a rel="rdfs:subClassOf" href="http://www.w3.org/ns/activitystreams#Activity">as:Activity</a>. May have an <code>object</code> of the document being written.</p>
+        </dd>
+
+        <dt id="wordCount" about="#wordCount" typeof="rdf:Property" property="rdfs:label"><a href="#wordCount">wordCount</a></dt>
+        <dd about="#wordCount">
+          <p property="rdfs:comment">The number of words being recorded.</p>
         </dd>
       </dl>
     </section>
-
+<!--
     <section id="im">
       <h2>Instant Messages</h2>
       <p>Motivated by how much time I spend on IRC; I wrote <a href="#">a script that converts the results of a SQLite query on my Quassel logs to Send activities</a> (which I can then dump in my triplestore).</p>
@@ -133,7 +142,7 @@
         </dd>
       </dl>
     </section>
---> 
+-->
     <section id="usage">
       <h2>Usage</h2>
       <div>
